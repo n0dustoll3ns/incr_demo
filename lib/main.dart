@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'navigator.dart';
 
 void main() {
   runApp(const App());
@@ -14,8 +15,8 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(
-
+      home: AppNavigation(
+        
       ),
     );
   }
