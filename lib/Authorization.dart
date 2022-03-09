@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tradebits_ui/main_screen.dart';
+import 'package:tradebits_ui/screen1.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -53,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 child: const Text('NEXT'),
                 onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
                 },
               )
             ],

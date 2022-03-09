@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'navigator.dart';
+import 'package:tradebits_ui/main_screen.dart';
+import 'Authorization.dart';
 
 void main() {
   runApp(const App());
@@ -10,14 +11,25 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool _isauthorized = false;
+    if (_isauthorized == false) {
+      String _initialRouteSign = '/auth';
+    } else {
+      String _initialRouteSign = '/';
+    }
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AppNavigation(
-        
-      ),
+      initialRoute: _initialRouteSign,
+      routes: {
+        '/': (context) => MainScreen(),
+        '/auth': (context) => LoginPage(),
+      },
     );
   }
 }
+
+String _initialRouteSign = '/auth';
