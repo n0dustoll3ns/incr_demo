@@ -38,6 +38,16 @@ class _LoginPageState extends State<LoginPage> {
           ),
           ButtonBar(
             children: <Widget>[
+              TextButton(
+                child: const Text("CANCEL"),
+                onPressed: (){
+                  // Action CANCEL
+                },
+              ),
+              ElevatedButton(child: const Text('NEXT'),
+              onPressed: (){
+                // Action NEXT
+              },)
             ],
           ),
         ],
