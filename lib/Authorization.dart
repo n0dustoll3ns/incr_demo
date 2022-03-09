@@ -14,7 +14,11 @@ class _LoginPageState extends State<LoginPage> {
         body: SafeArea(
             child: ListView(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
-      children: <Widget>[],
+      children: <Widget>[
+        Image.asset('assets/diamond.png'),
+        const SizedBox(height: 16.0),
+        const Text('SHRINE'),
+      ],
     )));
   }
 }
