@@ -8,6 +8,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +28,14 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const SizedBox(height: 120),
           TextField(
+            controller: _usernameController,
             decoration: const InputDecoration(
               filled: true,
               labelText: 'Login',
             ),
           ),
           TextField(
+            controller: _passwordController,
             decoration: const InputDecoration(
               filled: true,
               labelText: 'Pass',
@@ -40,14 +45,16 @@ class _LoginPageState extends State<LoginPage> {
             children: <Widget>[
               TextButton(
                 child: const Text("CANCEL"),
-                onPressed: (){
-                  // Action CANCEL
+                onPressed: () {
+                  _usernameController.clear();
+                  _passwordController.clear();
                 },
               ),
-              ElevatedButton(child: const Text('NEXT'),
-              onPressed: (){
-                // Action NEXT
-              },)
+              ElevatedButton(
+                child: const Text('NEXT'),
+                onPressed: () {
+                },
+              )
             ],
           ),
         ],
