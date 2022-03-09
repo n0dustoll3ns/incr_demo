@@ -24,8 +24,18 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ),
           const SizedBox(height: 120),
-          TextField(),
-          TextField(),
+          TextField(
+            decoration: const InputDecoration(
+              filled: true,
+              labelText: 'Login',
+            ),
+          ),
+          TextField(
+            decoration: const InputDecoration(
+              filled: true,
+              labelText: 'Pass',
+            ),
+          ),
         ],
       ),
     ));
