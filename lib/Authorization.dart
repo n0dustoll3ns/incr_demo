@@ -36,6 +36,10 @@ class _LoginPageState extends State<LoginPage> {
               labelText: 'Pass',
             ),
           ),
+          ButtonBar(
+            children: <Widget>[
+            ],
+          ),
         ],
       ),
     ));
