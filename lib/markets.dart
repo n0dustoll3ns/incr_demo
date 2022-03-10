@@ -26,7 +26,7 @@ class Markets extends StatelessWidget {
             img: "assets/images/CoinBase Exchange.png",
             worktime: "24 hours a day",
             fee: 86,
-            delimiter: 2),
+            delimiter: 3),
         MarketListSnippet(
             name: "FTX",
             mkey: "base64content",
@@ -34,7 +34,7 @@ class Markets extends StatelessWidget {
             img: "assets/images/FTX.png",
             worktime: "9:00 - 23:00 / UTC+0",
             fee: 86,
-            delimiter: 1),
+            delimiter: 3),
         MarketListSnippet(
             name: "Kraken",
             mkey: "base64content",
@@ -76,64 +76,74 @@ class MarketListSnippet extends StatelessWidget {
   final int delimiter;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: 15.0),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Colors.grey,
-          width: 1,
-        ),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(vertical: 15.0),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black38,
+                spreadRadius: 1,
+                blurRadius: 1,
+                offset: Offset(1,2),
+              )
+            ],
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(
-                width: 50,
-                height: 50,
-                child: Image.asset(img),
-              ),
-              SizedBox(
-                height: 50,
-                child: Center(
-                  child: Text(
-                    name,
-                    style: TextStyle(color: Colors.black87, fontSize: 27),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: Image.asset(img),
                   ),
+                  SizedBox(
+                    height: 50,
+                    child: Center(
+                      child: Text(
+                        name,
+                        style: TextStyle(color: Colors.black87, fontSize: 27),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 30,
+                    height: 50,
+                    child: Center(
+                        child: Icon(
+                      Icons.more_vert,
+                      size: 25,
+                    )),
+                  ),
+                ],
+              ),
+              Container(
+                height: 80,
+                padding: EdgeInsets.all(5),
+                child: Text(
+                  descr,
+                  style: TextStyle(color: Colors.black87, fontSize: 13),
+                  textAlign: TextAlign.left,
                 ),
               ),
-              SizedBox(
-                width: 30,
-                height: 50,
-                child: Center(
-                    child: Icon(
-                  Icons.more_vert,
-                  size: 25,
-                )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(child: Text("Fee: $fee")),
+                  Container(child: Text("Worktime: $worktime")),
+                ],
               ),
             ],
           ),
-          Container(
-            height: 80,
-            padding: EdgeInsets.all(5),
-            child: Text(
-              descr,
-              style: TextStyle(color: Colors.black87, fontSize: 13),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(child: Text("Fee: $fee")),
-              Container(child: Text("Worktime: $worktime")),
-            ],
-          ),
-        ],
-      ),
+        ),
+        SizedBox(height: 5),
+      ],
     );
   }
 }
