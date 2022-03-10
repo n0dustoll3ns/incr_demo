@@ -9,12 +9,48 @@ class Markets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [
-        ListTile(
-          leading: Image.asset("assets/images/Binance.png"),
-          title: Text("Binance"),
-          trailing: Icon(Icons.more_vert),
-        ),
+      padding: const EdgeInsets.all(8.0),
+      children: <MarketListSnippet>[
+        MarketListSnippet(
+            name: "Binance",
+            mkey: "base64content",
+            descr: "Best ever example description, kinda cool aswell",
+            img: "assets/images/Binance.png",
+            worktime: "24 hours a day",
+            fee: 82,
+            delimiter: 2),
+        MarketListSnippet(
+            name: "CoinBase Exchange",
+            mkey: "base64content",
+            descr: "Best ever example description, kinda cool aswell",
+            img: "assets/images/CoinBase Exchange.png",
+            worktime: "24 hours a day",
+            fee: 86,
+            delimiter: 2),
+        MarketListSnippet(
+            name: "FTX",
+            mkey: "base64content",
+            descr: "Best ever example description, kinda cool aswell",
+            img: "assets/images/FTX.png",
+            worktime: "9:00 - 23:00 / UTC+0",
+            fee: 86,
+            delimiter: 1),
+        MarketListSnippet(
+            name: "Kraken",
+            mkey: "base64content",
+            descr: "Best ever example description, kinda cool aswell",
+            img: "assets/images/FTX.png",
+            worktime: "24 hours a day",
+            fee: 86,
+            delimiter: 2),
+        MarketListSnippet(
+            name: "Kucoin",
+            mkey: "base64content",
+            descr: "Best ever example description, kinda cool aswell",
+            img: "assets/images/FTX.png",
+            worktime: "24 hours a day",
+            fee: 86,
+            delimiter: 2),
       ],
     );
   }
@@ -36,12 +72,12 @@ class MarketListSnippet extends StatelessWidget {
   final String descr;
   final String img;
   final String worktime;
-  final String fee;
-  final String delimiter;
+  final int fee;
+  final int delimiter;
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5.0),
+        padding: const EdgeInsets.symmetric(vertical: 15.0),
         child: Column(
           children: [
             Row(
@@ -49,14 +85,22 @@ class MarketListSnippet extends StatelessWidget {
                 SizedBox(
                   width: 30,
                   height: 30,
-                  child: Image.asset(name),
+                  child: Image.asset(
+                    img,
+                  ),
                 ),
                 SizedBox(
                   height: 30,
-                  child: Text(name,
-                  style: TextStyle(color: Colors.black87, fontSize: 35),
-                    ),
-                )
+                  child: Text(
+                    name,
+                    style: TextStyle(color: Colors.black87, fontSize: 35),
+                  ),
+                ),
+                SizedBox(
+                  width: 30,
+                  height: 30,
+                  child: Icon(Icons.more_vert),
+                ),
               ],
             ),
             Text(descr),
