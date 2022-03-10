@@ -9,7 +9,7 @@ class Markets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(6.0),
       children: <MarketListSnippet>[
         MarketListSnippet(
             name: "Binance",
@@ -39,7 +39,7 @@ class Markets extends StatelessWidget {
             name: "Kraken",
             mkey: "base64content",
             descr: "Best ever example description, kinda cool aswell",
-            img: "assets/images/FTX.png",
+            img: "assets/images/Kraken.png",
             worktime: "24 hours a day",
             fee: 86,
             delimiter: 2),
@@ -47,7 +47,7 @@ class Markets extends StatelessWidget {
             name: "Kucoin",
             mkey: "base64content",
             descr: "Best ever example description, kinda cool aswell",
-            img: "assets/images/FTX.png",
+            img: "assets/images/Kucoin.png",
             worktime: "24 hours a day",
             fee: 86,
             delimiter: 2),
@@ -76,36 +76,64 @@ class MarketListSnippet extends StatelessWidget {
   final int delimiter;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 15.0),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                SizedBox(
-                  width: 30,
-                  height: 30,
-                  child: Image.asset(
-                    img,
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 15.0),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.grey,
+          width: 1,
+        ),
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                width: 50,
+                height: 50,
+                child: Image.asset(img),
+              ),
+              SizedBox(
+                height: 50,
+                child: Center(
                   child: Text(
                     name,
-                    style: TextStyle(color: Colors.black87, fontSize: 35),
+                    style: TextStyle(color: Colors.black87, fontSize: 27),
                   ),
                 ),
-                SizedBox(
-                  width: 30,
-                  height: 30,
-                  child: Icon(Icons.more_vert),
-                ),
-              ],
+              ),
+              SizedBox(
+                width: 30,
+                height: 50,
+                child: Center(
+                    child: Icon(
+                  Icons.more_vert,
+                  size: 25,
+                )),
+              ),
+            ],
+          ),
+          Container(
+            height: 80,
+            padding: EdgeInsets.all(5),
+            child: Text(
+              descr,
+              style: TextStyle(color: Colors.black87, fontSize: 13),
+              textAlign: TextAlign.left,
             ),
-            Text(descr),
-            Row(),
-          ],
-        ));
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(child: Text("Fee: $fee")),
+              Container(child: Text("Worktime: $worktime")),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }
