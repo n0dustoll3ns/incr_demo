@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tradebits_ui/main_screen.dart';
-import 'Authorization.dart';
+import 'authorization.dart';
 
 void main() {
   runApp(const App());
