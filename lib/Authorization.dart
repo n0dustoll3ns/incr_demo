@@ -55,7 +55,9 @@ class _LoginPageState extends State<LoginPage> {
               ElevatedButton(
                 child: const Text('NEXT'),
                 onPressed: () {
-                  Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
+                  bool _isauthorized = true;
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/', (route) => false);
                 },
               )
             ],
