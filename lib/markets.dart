@@ -7,47 +7,21 @@ class Markets extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.all(6.0),
-      children: const <MarketListSnippet>[
-        MarketListSnippet(
-            name: "Binance",
-            mkey: "base64content",
-            descr: "Best ever example description, kinda cool aswell",
-            img: "assets/images/Binance.png",
-            worktime: "24 hours a day",
-            fee: 82,
-            delimiter: 2),
-        MarketListSnippet(
-            name: "CoinBase Exchange",
-            mkey: "base64content",
-            descr: "Best ever example description, kinda cool aswell",
-            img: "assets/images/CoinBase Exchange.png",
-            worktime: "24 hours a day",
-            fee: 86,
-            delimiter: 3),
-        MarketListSnippet(
-            name: "FTX",
-            mkey: "base64content",
-            descr: "Best ever example description, kinda cool aswell",
-            img: "assets/images/FTX.png",
-            worktime: "9:00 - 23:00 / UTC+0",
-            fee: 86,
-            delimiter: 3),
-        MarketListSnippet(
-            name: "Kraken",
-            mkey: "base64content",
-            descr: "Best ever example description, kinda cool aswell",
-            img: "assets/images/Kraken.png",
-            worktime: "24 hours a day",
-            fee: 86,
-            delimiter: 2),
-        MarketListSnippet(
-            name: "Kucoin",
-            mkey: "base64content",
-            descr: "Best ever example description, kinda cool aswell",
-            img: "assets/images/Kucoin.png",
-            worktime: "24 hours a day",
-            fee: 86,
-            delimiter: 2),
+      children: <Widget>[
+        Card(
+          child: ListTile(
+            leading: Icon(Icons.autorenew),
+            title: Text("Binance"),
+            subtitle: Text("Best ever example description, kinda cool aswell"),
+            isThreeLine: true,
+            trailing: Icon(Icons.more_vert),
+            onTap: () {
+                  bool _isauthorized = true;
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/marketdetail', (route) => true);
+                },
+          ),
+        ),
       ],
     );
   }
@@ -75,68 +49,71 @@ class MarketListSnippet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          padding: const EdgeInsets.symmetric(vertical: 15.0),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black38,
-                spreadRadius: 1,
-                blurRadius: 1,
-                offset: Offset(1,2),
-              )
-            ],
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: Image.asset(img),
-                  ),
-                  SizedBox(
-                    height: 50,
-                    child: Center(
-                      child: Text(
-                        name,
-                        style: const TextStyle(color: Colors.black87, fontSize: 27),
+        Card(
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 15.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black38,
+                  spreadRadius: 1,
+                  blurRadius: 1,
+                  offset: Offset(1, 2),
+                )
+              ],
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: Image.asset(img),
+                    ),
+                    SizedBox(
+                      height: 50,
+                      child: Center(
+                        child: Text(
+                          name,
+                          style: const TextStyle(
+                              color: Colors.black87, fontSize: 27),
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 30,
-                    height: 50,
-                    child: Center(
-                        child: Icon(
-                      Icons.more_vert,
-                      size: 25,
-                    )),
-                  ),
-                ],
-              ),
-              Container(
-                height: 80,
-                padding: const EdgeInsets.all(5),
-                child: Text(
-                  descr,
-                  style: const TextStyle(color: Colors.black87, fontSize: 13),
-                  textAlign: TextAlign.left,
+                    const SizedBox(
+                      width: 30,
+                      height: 50,
+                      child: Center(
+                          child: Icon(
+                        Icons.more_vert,
+                        size: 25,
+                      )),
+                    ),
+                  ],
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Fee: $fee"),
-                  Text("Worktime: $worktime"),
-                ],
-              ),
-            ],
+                Container(
+                  height: 80,
+                  padding: const EdgeInsets.all(5),
+                  child: Text(
+                    descr,
+                    style: const TextStyle(color: Colors.black87, fontSize: 13),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Fee: $fee"),
+                    Text("Worktime: $worktime"),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(height: 5),

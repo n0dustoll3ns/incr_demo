@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'markets.dart';
 import 'screen2.dart';
 import 'screen3.dart';
-import 'authorization.dart';
+import 'tech_support_chat.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -18,6 +18,7 @@ class _MainScreenState extends State<MainScreen> {
     Markets(),
     Screen2(),
     Screen3(),
+    TechSupportChat(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -43,8 +44,13 @@ class _MainScreenState extends State<MainScreen> {
             icon: Icon(Icons.settings),
             label: 'Settings',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Settings',
+          ),
         ],
         currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
       ),
     );

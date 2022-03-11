@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tradebits_ui/main_screen.dart';
+import 'package:tradebits_ui/market_detail.dart';
 import 'authorization.dart';
 
 void main() {
@@ -27,6 +28,7 @@ class App extends StatelessWidget {
       routes: {
         '/': (context) => MainScreen(),
         '/auth': (context) => LoginPage(),
+        '/marketdetail':(context) => MarketDetailPage(),
       },
     );
   }
