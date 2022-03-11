@@ -31,6 +31,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: SafeArea(child: screens[_selectedIndex]),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.business),

@@ -5,16 +5,27 @@ class MarketDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Binance'),
+    return DefaultTabController(
+      length: 4,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              Tab(text: 'detail',),
+              Tab(text: 'detail2',),
+              Tab(text: 'detail3',),
+              Tab(text: 'detail4',),
+            ],
+          ),
+          title: const Text('Binance'),
+        ),
+        body: Center(child: Text('BINANCE DATA')),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () => setState(() => _count++),
+        //   tooltip: 'Increment Counter',
+        //   child: const Icon(Icons.mon),
+        // ),
       ),
-      body: Center(child: Text('BINANCE DATA')),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () => setState(() => _count++),
-      //   tooltip: 'Increment Counter',
-      //   child: const Icon(Icons.mon),
-      // ),
     );
   }
 }
