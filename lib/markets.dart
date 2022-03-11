@@ -1,7 +1,4 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'mock_data.dart';
 
 class Markets extends StatelessWidget {
   const Markets({Key? key}) : super(key: key);
@@ -10,7 +7,7 @@ class Markets extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.all(6.0),
-      children: <MarketListSnippet>[
+      children: const <MarketListSnippet>[
         MarketListSnippet(
             name: "Binance",
             mkey: "base64content",
@@ -82,7 +79,7 @@ class MarketListSnippet extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 15.0),
           decoration: BoxDecoration(
             color: Colors.white,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.black38,
                 spreadRadius: 1,
@@ -108,11 +105,11 @@ class MarketListSnippet extends StatelessWidget {
                     child: Center(
                       child: Text(
                         name,
-                        style: TextStyle(color: Colors.black87, fontSize: 27),
+                        style: const TextStyle(color: Colors.black87, fontSize: 27),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 30,
                     height: 50,
                     child: Center(
@@ -125,24 +122,24 @@ class MarketListSnippet extends StatelessWidget {
               ),
               Container(
                 height: 80,
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 child: Text(
                   descr,
-                  style: TextStyle(color: Colors.black87, fontSize: 13),
+                  style: const TextStyle(color: Colors.black87, fontSize: 13),
                   textAlign: TextAlign.left,
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(child: Text("Fee: $fee")),
-                  Container(child: Text("Worktime: $worktime")),
+                  Text("Fee: $fee"),
+                  Text("Worktime: $worktime"),
                 ],
               ),
             ],
           ),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
       ],
     );
   }
